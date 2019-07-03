@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.elefirst.schedule2.dao.JobRunLogDao" >
+  <resultMap id="JobResultMap" type="com.elefirst.schedule2.bean.JobRunLogBean" >
+    <result column="job_key" property="jobKey" jdbcType="VARCHAR" />
+    <result column="trigger_key" property="triggerKey" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="DATE" />
+    <result column="end_time" property="endTime" jdbcType="DATE" />
+    <result column="host" property="host" jdbcType="VARCHAR" />
+    <result column="run_result" property="runResult" jdbcType="VARCHAR" />
+  </resultMap>
+
+  
+</mapper>

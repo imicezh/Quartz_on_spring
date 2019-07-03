@@ -1,0 +1,7 @@
+spring: 
+  datasource: 
+    c3p0: 
+      driverclass: com.mysql.jdbc.Driver
+      url: 
+      username: 
+      password: 

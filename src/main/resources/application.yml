@@ -1,0 +1,12 @@
+#server
+server: 
+  port: 8080
+  servlet: 
+    context-path: /scheduler2
+  
+#spring
+spring: 
+  profiles: 
+    active: dev
+  mybatis: 
+    mapperLocation: classpath*:com/neo/schedule2/**/dao/impl/*Mapper.xml

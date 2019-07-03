@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.elefirst.schedule2.dao.JobDao" >
+  <resultMap id="JobResultMap" type="com.elefirst.schedule2.bean.JobBean" >
+    <id     column="job_id" property="jobId" jdbcType="INTEGER" />
+    <result column="job_title" property="jobTitle" jdbcType="VARCHAR" />
+    <result column="job_name" property="jobName" jdbcType="VARCHAR" />
+    <result column="job_group" property="jobGroup" jdbcType="VARCHAR" />
+    <result column="job_class_name" property="jobClassName" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <update id="updateJobsByPrimaryKey" >
+  		update sys_qrtz_job
+  		set #{arg0} = #{arg1}
+  		<where>
+  			<trim>
+  				job_id in 
+  				<foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+  					#{item}
+  				</foreach>
+  			</trim>
+  		</where>
+  </update>
+  
+</mapper>

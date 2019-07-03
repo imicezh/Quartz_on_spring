@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.elefirst.schedule2.dao.TriggerDao" >
+  <resultMap id="TriggerResultMap" type="com.elefirst.schedule2.bean.TriggerBean" >
+    <id     column="trigger_id" property="accountId" jdbcType="INTEGER" />
+    <result column="job_title" property="triggerTitle" jdbcType="VARCHAR" />
+    <result column="trigger_name" property="memberId" jdbcType="VARCHAR" />
+    <result column="trigger_group" property="accountNumber" jdbcType="VARCHAR" />
+    <result column="trigger_type" property="quotaNormsId" jdbcType="VARCHAR" />
+    <result column="simple_repeat_count" property="simpleRepeatCount" jdbcType="INTEGER" />
+    <result column="simple_repeat_type" property="simpleRepeatType" jdbcType="VARCHAR" />
+    <result column="simple_interval" property="simpleInterval" jdbcType="INTEGER" />
+    <result column="start_time" property="startTime" jdbcType="DATE" />
+    <result column="end_time" property="endTime" jdbcType="DATE" />
+    <result column="simple_misfire_policy" property="simpleMisfirePolicy" jdbcType="VARCHAR" />
+    <result column="cron_misfire_policy" property="cronMisfirePolicy" jdbcType="VARCHAR" />
+    <result column="cron_formula" property="cronFormula" jdbcType="VARCHAR" />
+    <result column="job_name" property="jobName" jdbcType="VARCHAR" />
+    <result column="job_id" property="jobId" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+  </resultMap>
+
+
+  <update id="updateTriggersByPrimaryKey" >
+  		update sys_qrtz_trigger
+  		set #{arg0} = #{arg1}
+  		<where>
+  			<trim>
+  				trigger_id in 
+  				<foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+  					#{item}
+  				</foreach>
+  			</trim>
+  		</where>
+  </update>
+  
+</mapper>
