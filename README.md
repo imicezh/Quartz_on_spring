@@ -1,4 +1,2 @@
 # Quartz_on_spring
-fuse quartz with spring
-
-user Quartz in Spring Framework
+Basically run Quartz native function in your code, but using datasource that Spring provides and JOB instance managed by Spring Container.
